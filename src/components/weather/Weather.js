@@ -1,19 +1,37 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, ListGroup } from 'react-bootstrap';
 import './Weather.css';
 
-function Weather() {
+function Weather(props) {
+    console.log(props);
+    const style = {
+        arrow: {
+            transform: `rotate(${props.weather.deg}deg)`,
+            width: '70%'
+        }
+    }
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+        <Card>
+            <Card.Header>
+                <Card.Title>{props.date}</Card.Title>
+            </Card.Header>
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <ListGroup variant="flush">
+                    <ListGroup.Item>{props.weather.temp}</ListGroup.Item>
+                    <ListGroup.Item>{props.weather.humidity}</ListGroup.Item>
+                    <ListGroup.Item>{props.weather.wind_speed} / {props.weather.wind_deg}풍</ListGroup.Item>
+                    <ListGroup.Item>
+                        <Card.Img 
+                            src={process.env.PUBLIC_URL + '/icons/arrow.svg'}
+                            style={style.arrow}
+                            ></Card.Img>
+                    </ListGroup.Item>
+                </ListGroup>
             </Card.Body>
+            <Card.Footer>
+                <Card.Text>{props.weather.state}</Card.Text>
+                <Card.Img src={props.weather.icon}></Card.Img>
+            </Card.Footer>
         </Card>
     );
 }

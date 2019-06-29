@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import { CardDeck } from 'react-bootstrap';
-import Weather from '../weather/Weather';
-import axios from 'axios';
+import { Container } from 'react-bootstrap';
+
+import request from '../../data/data';
+import { LocationWeatherHelper } from '../../helper/LocationWeatherHelper';
+import ForecastComponent from '../forecast/Forecast.component';
+import LocationComponent from '../location/Location.component';
 
 class Weekly extends Component {
     constructor(props) {
         super(props);
-        this.state = { weathers: ['1', '2', '3'] };
+        this.state = { weathers: [] };
+    }
+
+    requestData() {
+        return request.getCurrentWeather();
     }
 
     async componentDidMount() {
-        // let { data: weathers } = await axios.get(PhotosEndPoint);
-        // this.setState({ photos });
+        const weathers = (await this.requestData()).map(LocationWeatherHelper.mapLocationWeather);
+        const state = {
+            weathers: weathers
+        };
+        this.setState(state);
     }
 
     render() {
         return (
-            <CardDeck>
-                {this.state.weathers
-                    .map((w) => <Weather></Weather>)}
-            </CardDeck>
+            <Container>
+                <LocationComponent></LocationComponent>
+                <ForecastComponent></ForecastComponent>
+            </Container>
         );
     }
 }
