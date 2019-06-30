@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { CardDeck, CardColumns } from 'react-bootstrap';
+import { CardDeck, Container } from 'react-bootstrap';
 import request from '../../data/data';
-import {ForecastHelper} from '../../helper/ForecastHelper';
+import { ForecastHelper } from '../../helper/ForecastHelper';
 import Weather from '../weather/Weather';
 
 class ForecastComponent extends Component {
@@ -26,8 +26,10 @@ class ForecastComponent extends Component {
     render() {
         return (
             <CardDeck>
-                {this.state.weathers
-                    .map((w) => <Weather date={w.date} weather={w.weather}></Weather>)}
+                <Container>
+                    {this.state.weathers
+                            .map((w, i) => <Weather date={w.date} weather={w.weather} key={i}></Weather>)}
+                </Container>
             </CardDeck>
         );
     }

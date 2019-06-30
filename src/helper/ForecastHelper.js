@@ -7,7 +7,7 @@ export class ForecastHelper {
 
 ForecastHelper.mapWeather = function(param) {
     return {
-        date: moment(Number(param.dt) * 1000).format('MM-DD'),
+        date: moment(Number(param.dt) * 1000).format('dddd'),
         weather: new Weather({
             temp: param.temp.day,
             pressure: param.pressure,
