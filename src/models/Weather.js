@@ -44,7 +44,7 @@ export class Weather {
                 path.push('icons/sun.svg');
                 break;
             case Weather.HAZE:
-                path.push('icons/cloud.svg');
+                path.push('icons/haze.svg');
                 break;
             case Weather.RAIN:
                 path.push('icons/rain.svg');
