@@ -10,21 +10,21 @@ export class LocationWeatherHelper {
 
 LocationWeatherHelper.mapLocationWeather = function(param) {
     const location = new Location({
-        id: param.id,
-        name: param.name,
-        country: param.sys.country,
-        lon: param.coord.lon,
-        lat: param.coord.lat
+        id: param.location.id,
+        name: param.location.name,
+        country: param.location.country,
+        lon: param.location.lon,
+        lat: param.location.lat
     });
 
     const weather = new Weather({
-        temp: param.main.temp,
-        pressure: param.main.pressure,
-        humidity: param.main.humidity,
-        wind_speed: param.wind.speed,
-        wind_deg: param.wind.deg,
-        cloud: param.clouds.all,
-        state: param.weather[0].main
+        temp: param.weather.temp,
+        pressure: param.weather.pressure,
+        humidity: param.weather.humidity,
+        wind_speed: param.weather.speed,
+        wind_deg: param.weather.deg,
+        cloud: param.weather.cloud,
+        state: param.weather.state
     });
 
     return new LocationWeather({
