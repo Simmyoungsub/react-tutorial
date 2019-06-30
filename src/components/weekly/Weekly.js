@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 import request from '../../data/data';
 import { LocationWeatherHelper } from '../../helper/LocationWeatherHelper';
 import ForecastComponent from '../forecast/Forecast.component';
 import LocationComponent from '../location/Location.component';
+import CurrentWeather from '../current/CurrentWeather';
+
+import './Weekly.css';
 
 class Weekly extends Component {
     constructor(props) {
@@ -27,9 +30,18 @@ class Weekly extends Component {
     render() {
         return (
             <Container>
-                <LocationComponent></LocationComponent>
-                <ForecastComponent></ForecastComponent>
+                <Row className="row">
+                    <Col md={12}>
+                        <CurrentWeather></CurrentWeather>
+                    </Col>
+                </Row>
+                <Row className="row">
+                    <Col md={12}>
+                        <ForecastComponent></ForecastComponent>
+                    </Col>
+                </Row>
             </Container>
+            
         );
     }
 }

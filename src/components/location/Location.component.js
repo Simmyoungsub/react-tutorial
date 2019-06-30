@@ -8,7 +8,7 @@ class LocationComponent extends Component {
 
     render() {
         return (
-            <Card style={{ width: '20rem' }}>
+            <Card>
                 <Card.Header>
                     <Card.Text>지역</Card.Text>
                 </Card.Header>
