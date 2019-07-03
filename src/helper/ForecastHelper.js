@@ -7,15 +7,15 @@ export class ForecastHelper {
 
 ForecastHelper.mapWeather = function(param) {
     return {
-        date: moment(Number(param.dt) * 1000).format('dddd'),
+        date: param.date,
         weather: new Weather({
-            temp: param.temp.day,
-            pressure: param.pressure,
-            humidity: param.humidity,
-            wind_speed: param.speed,
-            wind_deg: param.deg,
-            cloud: param.clouds,
-            state: param.weather[0].main
+            temp: param.weather.temp,
+            pressure: param.weather.pressure,
+            humidity: param.weather.humidity,
+            wind_speed: param.weather.speed,
+            wind_deg: param.weather.deg,
+            cloud: param.weather.cloud,
+            state: param.weather.state
         })
     };
 }

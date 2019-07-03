@@ -16,7 +16,7 @@ class ForecastComponent extends Component {
 
     async componentDidMount() {
         const forecast = await this.getForcast();
-        const list = forecast.list.map(ForecastHelper.mapWeather);
+        const list = forecast.map(ForecastHelper.mapWeather);
         const state = {
             weathers: list
         };
