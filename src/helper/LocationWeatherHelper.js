@@ -19,6 +19,8 @@ LocationWeatherHelper.mapLocationWeather = function(param) {
 
     const weather = new Weather({
         temp: param.weather.temp,
+        temp_max: param.weather.temp_max,
+        temp_min: param.weather.temp_min,
         pressure: param.weather.pressure,
         humidity: param.weather.humidity,
         wind_speed: param.weather.speed,

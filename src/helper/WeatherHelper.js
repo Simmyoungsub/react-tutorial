@@ -9,6 +9,8 @@ WeatherHelper.mapWeather = function (param) {
         {
             state: param.weather[0].main,
             temp: param.main.temp,
+            temp_max: param.weather.temp_max,
+            temp_min: param.weather.temp_min,
             pressure: param.main.pressure,
             humidity: param.main.humidity,
             wind_speed: param.wind.speed,

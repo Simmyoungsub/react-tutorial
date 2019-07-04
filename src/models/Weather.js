@@ -1,6 +1,8 @@
 export class Weather {
     constructor(param) {
         this._temp = param.temp;
+        this._temp_max = param.temp_max;
+        this._temp_min = param.temp_min;
         this._pressure = param.pressure;
         this._humidity = param.humidity;
         this._wind_speed = param.wind_speed;
@@ -15,6 +17,14 @@ export class Weather {
 
     get temp() {
         return `${this.celsius(this._temp)} °C`;
+    }
+
+    get temp_max() {
+        return `${this.celsius(this._temp_max)} °C`;
+    }
+
+    get temp_min() {
+        return `${this.celsius(this._temp_min)} °C`;
     }
 
     get humidity() {

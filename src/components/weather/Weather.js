@@ -12,6 +12,12 @@ function Weather(props) {
         row: {
             'marginBottom': 0,
             'alignItems': 'center'
+        },
+        max: {
+            'color': '#f00'
+        },
+        min: {
+            'color': '#00f'
         }
     }
     return (
@@ -24,7 +30,7 @@ function Weather(props) {
                     <Image src={props.weather.icon}></Image>
                 </Col>
                 <Col md="3">
-                    {props.weather.temp}
+                    <strong style={style.max}>{props.weather.temp_max}</strong> / <strong style={style.min}>{props.weather.temp_min}</strong>
                 </Col>
             </Row>
         </Card>
